@@ -1,25 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, Dispatch } from 'react';
+import firebase from './config/firebase';
+import Navbar from './components/Navbar';
+import PageDisplay from './components/PageDisplay';
+import { useDispatch } from 'react-redux';
+import { UserActions } from './redux/actions/userActions';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    const userDispatch = useDispatch<Dispatch<UserActions>>();
+    
+    useEffect(() => {
+        firebase.auth().onAuthStateChanged((user) => {
+            if(user) {
+                userDispatch({ type: 'SET_USER', user })
+            } else {
+                userDispatch({ type: 'SET_USER', user: null })
+            }
+        })
+    }, [userDispatch])
+
+    return (
+        <div>
+            <Navbar />
+            <PageDisplay />
+        </div>
   );
 }
 
