@@ -1,4 +1,4 @@
-import { User } from "firebase";
+import { User } from "../reducers/userReducer";
 
 export interface ISetUserAction {
   readonly type: 'SET_USER';

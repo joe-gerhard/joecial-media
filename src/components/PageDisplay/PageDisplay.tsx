@@ -7,6 +7,7 @@ import LandingPage from '../../pages/LandingPage';
 import LoginPage from '../../pages/LoginPage';
 import NewsFeedPage from '../../pages/NewsFeedPage';
 import ProfilePage from '../../pages/ProfilePage';
+import _404Page from '../../pages/_404Page'
 
 const PageDisplay = () => {
     const { user } = useSelector((state: AppState) => state.user);
@@ -14,11 +15,12 @@ const PageDisplay = () => {
     return (
         <Styled.PageDisplay>
             <Switch>
-                <Route path="/login" component={LoginPage} />
+                <Route exact path="/login" component={LoginPage} />
                 {user && 
-                 <Route path="/profile" component={ProfilePage} />
+                 <Route exact path="/profile" component={ProfilePage} />
                 }
-                <Route path="/" component={user ? NewsFeedPage : LandingPage} />
+                <Route exact path="/" component={user ? NewsFeedPage : LandingPage} />
+                <Route component={_404Page} />
             </Switch>
         </Styled.PageDisplay>
     )

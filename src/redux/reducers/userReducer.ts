@@ -1,6 +1,14 @@
-import { User } from "firebase";
 import { UserActions } from "../actions/userActions";
 import { Reducer } from "redux";
+
+export type User = {
+    uid?: string;
+    displayName?: string | null;
+    photoURL?: string | null;
+    email?: string | null;
+    emailVerified?: boolean ;
+    phoneNumber?: string | null;
+} 
 
 type UserState = {
     user: null | User

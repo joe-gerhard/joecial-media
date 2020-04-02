@@ -9,9 +9,10 @@ function App() {
     const userDispatch = useDispatch<Dispatch<UserActions>>();
     
     useEffect(() => {
-        firebase.auth().onAuthStateChanged((user) => {
+        firebase.auth().onAuthStateChanged(user => {
             if(user) {
-                userDispatch({ type: 'SET_USER', user })
+                const { uid, displayName, photoURL, email, emailVerified, phoneNumber } = user;
+                userDispatch({ type: 'SET_USER', user: { uid, displayName, photoURL, email, emailVerified, phoneNumber } })
             } else {
                 userDispatch({ type: 'SET_USER', user: null })
             }
