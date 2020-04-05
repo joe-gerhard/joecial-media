@@ -5,7 +5,7 @@ import { User } from '../../redux/reducers/userReducer';
 import { useDispatch } from 'react-redux';
 import { UserActions } from '../../redux/actions/userActions';
 
-const LoginPage = () => {
+const SignUpPage = () => {
 
     const googleProvider = new firebase.auth.GoogleAuthProvider();
 
@@ -55,10 +55,10 @@ const LoginPage = () => {
     
 
     return (
-        <Styled.LoginPage>
+        <Styled.SignUpPage>
             <button onClick={handleSignInWithGoogle}>Sign in with google</button>
-        </Styled.LoginPage>
+        </Styled.SignUpPage>
     )
 }
 
-export default LoginPage
+export default SignUpPage

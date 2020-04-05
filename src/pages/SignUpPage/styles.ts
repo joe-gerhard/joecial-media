@@ -1,11 +1,11 @@
 import styled, { css } from 'styled-components';
 import { Theme } from '../../styles/theme';
 
-type LoginPageProps = {
+type SignUpPageProps = {
     theme: Theme;
 }
 
-const LoginPage = styled.div(({ theme }: LoginPageProps) => css`
+const SignUpPage = styled.div(({ theme }: SignUpPageProps) => css`
     display: flex;
     height: calc(100vh - 50px);
     width: 100vw;
@@ -16,5 +16,5 @@ const LoginPage = styled.div(({ theme }: LoginPageProps) => css`
 
 
 export default {
-    LoginPage,
+    SignUpPage,
 }

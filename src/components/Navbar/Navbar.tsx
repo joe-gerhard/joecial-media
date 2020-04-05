@@ -13,12 +13,8 @@ const Navbar : React.FC = () => {
             <Styled.Link to="/">
                 <Styled.Logo src="/logoInverted192.png" alt="Joecial Media"/>
             </Styled.Link>
-            { user?.photoURL &&
-                <>
-                <NavbarButton marginLeft="auto" to="/profile" image={user.photoURL}>{firstName}</NavbarButton>
+                <NavbarButton marginLeft="auto" to="/profile" image={user?.photoURL || '/default-avatar.png'}>{firstName}</NavbarButton>
                 <NavbarButton to="/">Home</NavbarButton>
-                </>
-            }
         </Styled.Navbar>
     )
 }

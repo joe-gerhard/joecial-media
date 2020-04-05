@@ -49,21 +49,16 @@ const CreatePost = () => {
             onMouseLeave={handleMouseLeave}
             focus={isTextareaFocused}
         >
-            {
-                user?.photoURL && user?.displayName && 
-                <>
-                    <Styled.Header>
-                        Create Post: 
-                    </Styled.Header>
-                    <Styled.Form>
-                        <Link to="/profile">
-                            <Styled.ProfilePicture src={user.photoURL} alt={user.displayName}/>
-                        </Link>
-                        <Styled.Textarea placeholder={`What's on your mind, ${user?.displayName?.split(' ')[0]}?`} />
-                    </Styled.Form>
-                    <Styled.PostButton onClick={handleSubmit} visible={isTextareaFocused}>Post</Styled.PostButton>
-                </>
-            }
+            <Styled.Header>
+                Create Post: 
+            </Styled.Header>
+            <Styled.Form>
+                <Link to="/profile">
+                    <Styled.ProfilePicture src={user?.photoURL || '/default-avatar.png'} alt={user?.displayName || 'guest'}/>
+                </Link>
+                <Styled.Textarea placeholder={`What's on your mind, ${user?.displayName?.split(' ')[0]}?`} />
+            </Styled.Form>
+            <Styled.PostButton onClick={handleSubmit} visible={isTextareaFocused}>Post</Styled.PostButton>
         </Styled.CreatePost>
     )
 }

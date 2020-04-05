@@ -4,7 +4,6 @@ import { Switch, Route } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { AppState } from '../../redux/reducers/rootReducer';
 import LandingPage from '../../pages/LandingPage';
-import LoginPage from '../../pages/LoginPage';
 import NewsFeedPage from '../../pages/NewsFeedPage';
 import ProfilePage from '../../pages/ProfilePage';
 import _404Page from '../../pages/_404Page'
@@ -15,7 +14,6 @@ const PageDisplay = () => {
     return (
         <Styled.PageDisplay>
             <Switch>
-                <Route exact path="/login" component={LoginPage} />
                 {user && 
                  <Route exact path="/profile" component={ProfilePage} />
                 }
